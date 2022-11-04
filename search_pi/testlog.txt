@@ -1,0 +1,54 @@
+2022-10-19 11:57:58,331 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 11:57:58,434 DEBUG http://147.172.178.30:9010 "POST /auth/login HTTP/1.1" 201 263
+2022-10-19 11:57:58,434 DEBUG response body: b'{"id":"1","email":"elscha@sse.de","name":"Sascha","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbHNjaGFAc3NlLmRlIiwibmFtZSI6IlNhc2NoYSIsImlhdCI6MTY2NjE3MzQ3OCwiZXhwIjoxNjY2MTc1Mjc4fQ.yUdUaxECZ48cjAWUOjwb27cLv_IlBK4aqSGjQDxElJE"}'
+2022-10-19 11:58:00,631 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 11:58:00,704 DEBUG http://147.172.178.30:9010 "GET /repositories HTTP/1.1" 401 43
+2022-10-19 11:58:00,706 DEBUG response body: b'{"statusCode":401,"message":"Unauthorized"}'
+2022-10-19 12:25:36,192 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:25:36,317 DEBUG http://147.172.178.30:9010 "POST /auth/login HTTP/1.1" 201 263
+2022-10-19 12:25:36,318 DEBUG response body: b'{"id":"1","email":"elscha@sse.de","name":"Sascha","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbHNjaGFAc3NlLmRlIiwibmFtZSI6IlNhc2NoYSIsImlhdCI6MTY2NjE3NTEzNiwiZXhwIjoxNjY2MTc2OTM2fQ.BaD4l_nidpiFe3Uehzr-cIYosSQ3ZHK9GCni6LbbHn0"}'
+2022-10-19 12:25:40,122 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:25:40,185 DEBUG http://147.172.178.30:9010 "GET /repositories HTTP/1.1" 401 43
+2022-10-19 12:25:40,186 DEBUG response body: b'{"statusCode":401,"message":"Unauthorized"}'
+2022-10-19 12:30:53,205 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:30:53,290 DEBUG http://147.172.178.30:9010 "POST /auth/login HTTP/1.1" 201 263
+2022-10-19 12:30:53,290 DEBUG response body: b'{"id":"1","email":"elscha@sse.de","name":"Sascha","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbHNjaGFAc3NlLmRlIiwibmFtZSI6IlNhc2NoYSIsImlhdCI6MTY2NjE3NTQ1MywiZXhwIjoxNjY2MTc3MjUzfQ.LDcgT-WHTDRXRFNFysHL6e2BYFyOeSidwKIMC9i0wXk"}'
+2022-10-19 12:30:54,148 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:30:54,226 DEBUG http://147.172.178.30:9010 "GET /repositories HTTP/1.1" 401 43
+2022-10-19 12:30:54,228 DEBUG response body: b'{"statusCode":401,"message":"Unauthorized"}'
+2022-10-19 12:37:05,146 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:37:05,223 DEBUG http://147.172.178.30:9010 "GET /repositories HTTP/1.1" 401 43
+2022-10-19 12:37:05,224 DEBUG response body: b'{"statusCode":401,"message":"Unauthorized"}'
+2022-10-19 12:37:33,113 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:37:33,205 DEBUG http://147.172.178.30:9010 "POST /auth/login HTTP/1.1" 201 263
+2022-10-19 12:37:33,206 DEBUG response body: b'{"id":"1","email":"elscha@sse.de","name":"Sascha","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbHNjaGFAc3NlLmRlIiwibmFtZSI6IlNhc2NoYSIsImlhdCI6MTY2NjE3NTg1MywiZXhwIjoxNjY2MTc3NjUzfQ.cJE-fT_XHtyd45ZVxDgsswO904oisEAL8SNhAq2EA8Q"}'
+2022-10-19 12:39:21,581 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:39:21,677 DEBUG http://147.172.178.30:9010 "POST /auth/login HTTP/1.1" 201 263
+2022-10-19 12:39:21,678 DEBUG response body: b'{"id":"1","email":"elscha@sse.de","name":"Sascha","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbHNjaGFAc3NlLmRlIiwibmFtZSI6IlNhc2NoYSIsImlhdCI6MTY2NjE3NTk2MSwiZXhwIjoxNjY2MTc3NzYxfQ.dae1iD45BtP_9D0dMYMy81naKrJ_VfFCRw7tE2gzVVU"}'
+2022-10-19 12:39:21,967 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:39:22,031 DEBUG http://147.172.178.30:9010 "GET /repositories HTTP/1.1" 401 43
+2022-10-19 12:39:22,032 DEBUG response body: b'{"statusCode":401,"message":"Unauthorized"}'
+2022-10-19 12:39:46,169 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:39:46,281 DEBUG http://147.172.178.30:9010 "POST /auth/login HTTP/1.1" 201 263
+2022-10-19 12:39:46,281 DEBUG response body: b'{"id":"1","email":"elscha@sse.de","name":"Sascha","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbHNjaGFAc3NlLmRlIiwibmFtZSI6IlNhc2NoYSIsImlhdCI6MTY2NjE3NTk4NiwiZXhwIjoxNjY2MTc3Nzg2fQ.L15qB6DjoIMW1V2iK926wNv2kYduCHa3iNnLp-JYwOs"}'
+2022-10-19 12:39:46,457 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:39:46,551 DEBUG http://147.172.178.30:9010 "GET /repositories HTTP/1.1" 401 43
+2022-10-19 12:39:46,552 DEBUG response body: b'{"statusCode":401,"message":"Unauthorized"}'
+2022-10-19 12:41:11,939 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:41:12,050 DEBUG http://147.172.178.30:9010 "POST /auth/login HTTP/1.1" 201 263
+2022-10-19 12:41:12,052 DEBUG response body: b'{"id":"1","email":"elscha@sse.de","name":"Sascha","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbHNjaGFAc3NlLmRlIiwibmFtZSI6IlNhc2NoYSIsImlhdCI6MTY2NjE3NjA3MiwiZXhwIjoxNjY2MTc3ODcyfQ.hVJi0hhrAwSMIr2WafTbPpxcSMYNM1JV0hZJL0jEihw"}'
+2022-10-19 12:41:12,851 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:41:12,919 DEBUG http://147.172.178.30:9010 "GET /repositories HTTP/1.1" 401 43
+2022-10-19 12:41:12,919 DEBUG response body: b'{"statusCode":401,"message":"Unauthorized"}'
+2022-10-19 12:41:56,338 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:41:56,438 DEBUG http://147.172.178.30:9010 "POST /auth/login HTTP/1.1" 201 263
+2022-10-19 12:41:56,439 DEBUG response body: b'{"id":"1","email":"elscha@sse.de","name":"Sascha","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbHNjaGFAc3NlLmRlIiwibmFtZSI6IlNhc2NoYSIsImlhdCI6MTY2NjE3NjExNiwiZXhwIjoxNjY2MTc3OTE2fQ.41r0KZ0qbpvvg8-uU_4CmH8r7TXnSTW28NXpvYUpaCk"}'
+2022-10-19 12:41:57,754 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:41:57,824 DEBUG http://147.172.178.30:9010 "GET /repositories HTTP/1.1" 401 43
+2022-10-19 12:41:57,824 DEBUG response body: b'{"statusCode":401,"message":"Unauthorized"}'
+2022-10-19 12:42:42,292 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:42:42,391 DEBUG http://147.172.178.30:9010 "POST /auth/login HTTP/1.1" 201 263
+2022-10-19 12:42:42,392 DEBUG response body: b'{"id":"1","email":"elscha@sse.de","name":"Sascha","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJlbHNjaGFAc3NlLmRlIiwibmFtZSI6IlNhc2NoYSIsImlhdCI6MTY2NjE3NjE2MiwiZXhwIjoxNjY2MTc3OTYyfQ.JQ-nkvrWlwFWGuWY7XomeVhvRA1HnP6sXEUfqFI0L6w"}'
+2022-10-19 12:42:42,521 DEBUG Starting new HTTP connection (1): 147.172.178.30:9010
+2022-10-19 12:42:42,590 DEBUG http://147.172.178.30:9010 "GET /repositories HTTP/1.1" 401 43
+2022-10-19 12:42:42,591 DEBUG response body: b'{"statusCode":401,"message":"Unauthorized"}'

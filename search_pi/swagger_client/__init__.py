@@ -41,6 +41,7 @@ from swagger_client.models.login_dto import LoginDto
 from swagger_client.models.repository_creation_dto import RepositoryCreationDto
 from swagger_client.models.repository_dto import RepositoryDto
 from swagger_client.models.repository_list_dto import RepositoryListDto
+from swagger_client.models.repository_search_dto import RepositorySearchDto
 from swagger_client.models.resolved_repository_dto import ResolvedRepositoryDto
 from swagger_client.models.resolved_ueber_competence_dto import ResolvedUeberCompetenceDto
 from swagger_client.models.shallow_lo_repository_dto import ShallowLoRepositoryDto

@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**lo_repository_controller_modify_learning_object**](LearningObjectsApi.md#lo_repository_controller_modify_learning_object) | **PATCH** /lo_repository/{repositoryId}/{learningObjectId} | 
 [**lo_repository_controller_modify_repository**](LearningObjectsApi.md#lo_repository_controller_modify_repository) | **PATCH** /lo_repository/{repositoryId} | 
 [**lo_repository_controller_show_goal**](LearningObjectsApi.md#lo_repository_controller_show_goal) | **GET** /lo_repository/goals/{goalId} | 
-[**lo_repository_controller_show_goals**](LearningObjectsApi.md#lo_repository_controller_show_goals) | **GET** /lo_repository/{repositoryId}/goals | 
 
 # **lo_repository_controller_add_goal**
 > LoGoalDto lo_repository_controller_add_goal(body, repository_id)
@@ -28,11 +27,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.LearningObjectsApi(swagger_client.ApiClient(configuration))
@@ -81,11 +75,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.LearningObjectsApi(swagger_client.ApiClient(configuration))
@@ -134,11 +123,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.LearningObjectsApi(swagger_client.ApiClient(configuration))
@@ -316,11 +300,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.LearningObjectsApi(swagger_client.ApiClient(configuration))
@@ -371,11 +350,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.LearningObjectsApi(swagger_client.ApiClient(configuration))
@@ -444,51 +418,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**LoGoalDto**](LoGoalDto.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **lo_repository_controller_show_goals**
-> LoGoalListDto lo_repository_controller_show_goals(repository_id)
-
-
-
-### Example
-```python
-from __future__ import print_function
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.LearningObjectsApi()
-repository_id = 'repository_id_example' # str | 
-
-try:
-    api_response = api_instance.lo_repository_controller_show_goals(repository_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling LearningObjectsApi->lo_repository_controller_show_goals: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **repository_id** | **str**|  | 
-
-### Return type
-
-[**LoGoalListDto**](LoGoalListDto.md)
 
 ### Authorization
 

@@ -7,11 +7,12 @@ Method | HTTP request | Description
 [**repository_mgmt_controller_add_competence**](CompetenciesApi.md#repository_mgmt_controller_add_competence) | **POST** /repositories/{repositoryId}/competencies/add_competence | 
 [**repository_mgmt_controller_add_ueber_competence**](CompetenciesApi.md#repository_mgmt_controller_add_ueber_competence) | **POST** /repositories/{repositoryId}/competencies/add_uebercompetence | 
 [**repository_mgmt_controller_create_repository**](CompetenciesApi.md#repository_mgmt_controller_create_repository) | **POST** /repositories/create | 
-[**repository_mgmt_controller_list_repositories**](CompetenciesApi.md#repository_mgmt_controller_list_repositories) | **GET** /repositories | 
+[**repository_mgmt_controller_list_repositories**](CompetenciesApi.md#repository_mgmt_controller_list_repositories) | **GET** /repositories/showOwn | 
 [**repository_mgmt_controller_load_repository**](CompetenciesApi.md#repository_mgmt_controller_load_repository) | **GET** /repositories/{repositoryId} | 
 [**repository_mgmt_controller_load_resolved_repository**](CompetenciesApi.md#repository_mgmt_controller_load_resolved_repository) | **GET** /repositories/resolve/{repositoryId} | 
 [**repository_mgmt_controller_modify**](CompetenciesApi.md#repository_mgmt_controller_modify) | **PATCH** /repositories/{repositoryId}/competencies/modify_uebercompetence | 
-[**repository_mgmt_controller_search_for_repositories**](CompetenciesApi.md#repository_mgmt_controller_search_for_repositories) | **POST** /repositories/find | 
+[**repository_mgmt_controller_resolve_to_competencies**](CompetenciesApi.md#repository_mgmt_controller_resolve_to_competencies) | **POST** /repositories/{repositoryId}/resolveUberCompetencies | 
+[**repository_mgmt_controller_search_for_repositories**](CompetenciesApi.md#repository_mgmt_controller_search_for_repositories) | **POST** /repositories | 
 
 # **repository_mgmt_controller_add_competence**
 > CompetenceDto repository_mgmt_controller_add_competence(body, repository_id)
@@ -28,11 +29,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.CompetenciesApi(swagger_client.ApiClient(configuration))
@@ -81,11 +77,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.CompetenciesApi(swagger_client.ApiClient(configuration))
@@ -136,11 +127,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.CompetenciesApi(swagger_client.ApiClient(configuration))
@@ -189,11 +175,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.CompetenciesApi(swagger_client.ApiClient(configuration))
@@ -238,11 +219,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.CompetenciesApi(swagger_client.ApiClient(configuration))
@@ -291,11 +267,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.CompetenciesApi(swagger_client.ApiClient(configuration))
@@ -342,11 +313,6 @@ import swagger_client
 from swagger_client.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: bearer
-configuration = swagger_client.Configuration()
-configuration.api_key['Authorization'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
 # create an instance of the API class
 api_instance = swagger_client.CompetenciesApi(swagger_client.ApiClient(configuration))
@@ -374,6 +340,53 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [bearer](../README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **repository_mgmt_controller_resolve_to_competencies**
+> CompetenceListDto repository_mgmt_controller_resolve_to_competencies(body, repository_id)
+
+
+
+### Example
+```python
+from __future__ import print_function
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.CompetenciesApi()
+body = swagger_client.UberCompetenceResolveRequestDto() # UberCompetenceResolveRequestDto | 
+repository_id = 'repository_id_example' # str | 
+
+try:
+    api_response = api_instance.repository_mgmt_controller_resolve_to_competencies(body, repository_id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling CompetenciesApi->repository_mgmt_controller_resolve_to_competencies: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**UberCompetenceResolveRequestDto**](UberCompetenceResolveRequestDto.md)|  | 
+ **repository_id** | **str**|  | 
+
+### Return type
+
+[**CompetenceListDto**](CompetenceListDto.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 

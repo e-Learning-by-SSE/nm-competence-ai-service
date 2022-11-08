@@ -39,10 +39,19 @@ proofPath_request_schema = {
         'goal_id': {'type': 'integer'}},
     'required': ['id', 'timestamp', 'event', 'user_id', 'user_token','rep_id', 'goal_id'],
 }
+proofReachabilityGoal_request_schema = {
+    'type': 'object',
+    'properties': {
+        'user_token': {'type': 'string'},
+        'rep_id': {'type': 'integer'},
+        'goal_id': {'type': 'integer'}},
+    'required': ['user_token','rep_id', 'goal_id'],
+}
 token=''
 
 
 proof_path_dto = app.schema_model('Proof Path DTO', proofPath_request_schema)
+proof_ReachabilityGoal_dto = app.schema_model('Proof Reachability Goal DTO', proofReachabilityGoal_request_schema)
 
 
 
@@ -135,4 +144,14 @@ class Concept_Map_Prediction(Resource):
                         lst.append(x) if x not in lst else lst
                 print(lst) 
             return lst, 200
+        return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type
+    
+@cmr.route('/isGoalReachable/')
+class Is_Goal_Reachable(Resource):
+    @cmr.expect(proof_ReachabilityGoal_dto, validate=True)
+    def post(self):
+        if request.is_json:
+            data = request.get_json()
+            token= data.get('user_token')
+          
         return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type

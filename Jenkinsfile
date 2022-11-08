@@ -16,7 +16,7 @@ pipeline {
         
         stage('Check') {
             steps {
-                sh 'python3 -m py_compile *.py'
+                sh 'python3 -m py_compile */*.py'
             }
         }
 

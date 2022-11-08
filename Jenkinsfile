@@ -2,7 +2,9 @@ pipeline {
     agent any
 
     environment {
-        DEMO_SERVER = '147.172.178.30'
+        DEMO_SERVER = 'staging.sse.uni-hildesheim.de'
+        DEMO_SERVER_USER = "elscha"
+        REMOTE_UPDATE_SCRIPT = '/staging/update-compose-project.sh nm-competence-repository'
     }
 
     stages {
@@ -38,17 +40,13 @@ pipeline {
             }
         }
 
-        //stage('Deploy') {
-        //    steps {
-        //        sshagent(credentials: ['Stu-Mgmt_Demo-System']) {
-        //            sh """
-        //                ssh -i ~/.ssh/id_rsa_student_mgmt_backend elscha@${env.DEMO_SERVER} <<EOF
-        //                    cd /staging/qualityplus-ismll-recommender/
-        //                    ./recreate.sh
-        //                    exit
-        //                EOF"""
-        //        }
-        //    }
-        //}
+        // Based on: https://medium.com/@mosheezderman/c51581cc783c
+        stage('Deploy') {
+            steps {
+                sshagent(credentials: ['Stu-Mgmt_Demo-System']) {
+                    sh "ssh -i ~/.ssh/id_rsa_student_mgmt_backend ${DEMO_SERVER_USER}@${env.DEMO_SERVER} ${REMOTE_UPDATE_SCRIPT}"
+                }
+            }
+        }
     }
 }

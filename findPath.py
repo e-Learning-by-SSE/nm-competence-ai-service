@@ -81,6 +81,35 @@ def find_LO_for_competence(competence):
         except ApiException as e:
             print("Exception when calling Api-> %s\n" % e)
 
+def generateGraphforRep(repo_id, token):
+    api_client.set_default_header('Authorization', 'Bearer ' +token)
+    try:
+    # Get list of exposure types
+        my_competencies = repApi.repository_mgmt_controller_load_resolved_repository (repository_id=1)
+        print(my_competencies)
+    except ApiException as e:
+        print("Exception when calling Api-> %s\n" % e)
+            
+    try:
+        my_lo = loApi.lo_repository_controller_load_repository(repository_id=1)
+        print(my_lo)
+    except ApiException as e:
+        print("Exception when calling Api-> %s\n" % e)
+            
+    my_LO_complete = []   
+    for lo in my_lo.learning_objects:    
+        try:
+            print(lo.id)
+            my_LO_complete.append(loApi.lo_repository_controller_load_learning_object(learning_object_id=lo.id))
+        except ApiException as e:
+            print("Exception when calling Api-> %s\n" % e)
+            print(my_LO_complete)
+    for comp in my_competencies.competencies:
+        gr.add_node(comp.id, name=comp.description, art='Kompetenz')
+    for comp in my_competencies.ueber_competencies:
+        gr.add_node(comp.id+'ueber', name=comp.description, art='Ueber_Kompetenz')
+        addEdgeforList(comp, gr )
+    return my_LO_complete, my_competencies        
 @cmr.route('/hello_world')
 class Hello(Resource):
     def get(self, **kwargs):
@@ -93,33 +122,7 @@ class Concept_Map_Prediction(Resource):
         if request.is_json:
             data = request.get_json()
             token= data.get('user_token')
-            api_client.set_default_header('Authorization', 'Bearer ' +token)
-            try:
-    # Get list of exposure types
-                my_competencies = repApi.repository_mgmt_controller_load_resolved_repository (repository_id=1)
-                print(my_competencies)
-            except ApiException as e:
-                print("Exception when calling Api-> %s\n" % e)
-            
-            try:
-                my_lo = loApi.lo_repository_controller_load_repository(repository_id=1)
-                print(my_lo)
-            except ApiException as e:
-                print("Exception when calling Api-> %s\n" % e)
-            
-            my_LO_complete = []   
-            for lo in my_lo.learning_objects:    
-                try:
-                    print(lo.id)
-                    my_LO_complete.append(loApi.lo_repository_controller_load_learning_object(learning_object_id=lo.id))
-                except ApiException as e:
-                    print("Exception when calling Api-> %s\n" % e)
-            print(my_LO_complete)
-            for comp in my_competencies.competencies:
-                gr.add_node(comp.id, name=comp.description, art='Kompetenz')
-            for comp in my_competencies.ueber_competencies:
-                gr.add_node(comp.id+'ueber', name=comp.description, art='Ueber_Kompetenz')
-                addEdgeforList(comp, gr )
+            my_LO_complete, my_competencies = generateGraphforRep(1, token) 
             grLO = nx.DiGraph()
             grLO.add_node('Know nothing', subset='Start')
             for comp in my_competencies.competencies:

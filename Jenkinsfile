@@ -29,7 +29,7 @@ pipeline {
                     // - https://e.printstacktrace.blog/jenkins-pipeline-environment-variables-the-definitive-guide/
                     // - https://stackoverflow.com/a/16817748
                     // - https://stackoverflow.com/a/51991389
-                    env.API_VERSION = sh(returnStdout: true, script: 'grep -Po "(?<=app = flask_app, version=\')[^\']+" search_pi/findPath.py').trim()
+                    env.API_VERSION = sh(returnStdout: true, script: 'grep -Po "(?<=app = flask_app, version=\')[^\']+" findPath.py').trim()
                     echo "API: ${env.API_VERSION}"
                     dockerImage = docker.build 'e-learning-by-sse/nm-competence-ai-service'
                     docker.withRegistry('https://ghcr.io', 'github-ssejenkins') {
@@ -47,6 +47,18 @@ pipeline {
                     sh "ssh -i ~/.ssh/id_rsa_student_mgmt_backend ${DEMO_SERVER_USER}@${env.DEMO_SERVER} ${REMOTE_UPDATE_SCRIPT}"
                 }
             }
+        }
+    }
+    
+    post {
+        always {
+             // Send e-mails if build becomes unstable/fails or returns stable
+             // Based on: https://stackoverflow.com/a/39178479
+             load "$JENKINS_HOME/.envvars/emails.groovy"
+             step([$class: 'Mailer', recipients: "${env.elsharkawy}, ${env.wenzel}", notifyEveryUnstableBuild: true, sendToIndividuals: false])
+
+             // Report static analyses
+             recordIssues enabledForFailure: false, tool: checkStyle(pattern: 'output/eslint/eslint.xml')
         }
     }
 }

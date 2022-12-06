@@ -2,7 +2,7 @@ from flask import Flask, request
 import json, jsonschema
 from jsonschema import validate
 from flask_restx import Api, Resource, fields
-
+from flask_cors import CORS
 
 
 import swagger_client
@@ -26,7 +26,7 @@ flask_app = Flask(__name__)
 app = Api(app = flask_app, version='0.2', title='SSE', description='Web service')
 
 cmr = app.namespace('PAth Finder', path='/pathFinder', description='APIs for the Path Finder')
-
+CORS(flask_app)
 proofPath_request_schema = {
     'type': 'object',
     'properties': {

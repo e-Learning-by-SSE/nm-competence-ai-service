@@ -164,7 +164,7 @@ class Is_Goal_Reachable(Resource):
         if request.is_json:
             data = request.get_json()
             token= data.get('user_token')
-            return data 
+            return data
         return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type
     
 @cmr.route('/alternatePaths/')
@@ -179,11 +179,40 @@ class AlternatePaths(Resource):
     
         
 @cmr.route('/DAG/')
-class AlternatePaths(Resource):
+class DAG(Resource):
     @cmr.expect(proof_RepForDAG_dto, validate=True)
     def post(self):
         if request.is_json:
             data = request.get_json()
             token= data.get('user_token')
-            return data
+            my_LO_complete, my_competencies = generateGraphforRep(1, token) 
+            grLO = nx.DiGraph()
+            grLO.add_node('Know nothing', subset='Start')
+            for comp in my_competencies.competencies:
+                grLO.add_node(comp.id, name=comp.description, subset='Kompetenz')
+          #  for comp in my_competencies.ueber_competencies:
+           #     grLO.add_node(comp.id+'ueber', name=comp.description, subset='Ueber_Kompetenz')
+            #    addEdgeforList(comp, grLO )
+            for lo in my_LO_complete:
+                grLO.add_node(lo.id+'Lo', name=lo.description, subset='LO')
+                if not lo.required_competencies:
+                    if not lo.required_ueber_competencies: 
+                        grLO.add_edge( 'Know nothing',lo.id+'Lo', art = 'required_comp')
+                for nestcomp in lo.offered_competencies:
+                    grLO.add_edge(lo.id+'Lo', nestcomp, art = 'offered_comp')
+                for nestcomp in lo.required_competencies:
+                    grLO.add_edge(nestcomp,lo.id+'Lo', art = 'required_comp')    
+                for nestcomp in lo.offered_ueber_competencies:
+                    grLO.add_edge(lo.id+'Lo', nestcomp+'ueber', art = 'offered_ueber_comp')
+                for nestcomp in lo.required_ueber_competencies:
+                    grLO.add_edge(nestcomp+'ueber',lo.id+'Lo', art = 'required_ueber_comp')  
+          
+            cycles = list(nx.simple_cycles(grLO))
+            reverseCycles = list(nx.recursive_simple_cycles(grLO))
+            print(cycles)
+            if not cycles and not reverseCycles:
+                return 'Empty list'
+            else:
+                return('List is not Empty ',cycles, reverseCycles)
+            
         return {"Error": "Request must be JSON"}, 415 # 415 means Unsupported media type

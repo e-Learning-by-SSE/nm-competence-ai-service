@@ -10,6 +10,6 @@ flask
 jsonschema
 flask-restx
 Werkzeug==2.1.2
-CORS
+flask-cors
 ###### Requirements for Logic ######
 networkx
